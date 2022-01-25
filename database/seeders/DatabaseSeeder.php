@@ -3,6 +3,11 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Database\Seeders\{
+    CategorySeeder,
+    MethodPaymentSeeder,
+    RolesSeeder
+};
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +18,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+         $seedersArray = [
+            CategorySeeder::class,
+            MethodPaymentSeeder::class,
+            RolesSeeder::class,
+        ];
+
+        //call seeders
+        foreach ($seedersArray as $seeder) $this->call($seeder);
     }
 }

@@ -40,8 +40,6 @@ class CreatePayments extends Migration
 
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('receipt_id')->unsigned();
-            $table->foreign('receipt_id')->references('id')->on('receipts')->onDelete('cascade');
             $table->bigInteger('supplier_id')->unsigned();
             $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete('cascade');
             $table->bigInteger('employed_id')->unsigned();

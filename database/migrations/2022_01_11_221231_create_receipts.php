@@ -34,8 +34,8 @@ class CreateReceipts extends Migration
 
         Schema::create('receipts', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('buyer_id')->unsigned();
-            $table->foreign('buyer_id')->references('id')->on('buyers')->onDelete('cascade');
+            $table->bigInteger('customer_id')->unsigned();
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
             $table->bigInteger('payment_method_id')->unsigned();
             $table->foreign('payment_method_id')->references('id')->on('payment_methods')->onDelete('cascade');
             $table->bigInteger('article_id')->unsigned();

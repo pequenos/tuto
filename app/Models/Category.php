@@ -24,4 +24,14 @@ class Category extends Model
     protected $casts = [
         'created_at' => 'datetime'
     ];
+
+    public function supliers()
+    {
+        return $this->hasMany(Supplier::class, 'category_id', 'id');
+    }
+
+    public function articles()
+    {
+        return $this->hasMany(Article::class, 'category_id', 'id');
+    }
 }

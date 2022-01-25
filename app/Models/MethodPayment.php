@@ -19,4 +19,14 @@ class MethodPayment extends Model
         'created_at',
         'updated_at',
     ];
+
+    public function payment()
+    {
+        return $this->hasOne(User::class, 'payment_method_id', 'id');
+    }
+
+    public function receipt()
+    {
+        return $this->hasMany(Receipt::class, 'receipt_id', 'id');
+    }
 }

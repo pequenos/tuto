@@ -37,4 +37,9 @@ class Receipt extends Model
         return $this->belongsTo(MethodPayment::class, 'payment_method_id', 'id');
     }
 
+    public function articles()
+    {
+        return $this->hasMany(Article::class, 'Article', 'id');
+    }
+
 }

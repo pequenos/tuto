@@ -40,10 +40,15 @@ class CreatePayments extends Migration
 
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('supplier_id')->unsigned();
+            $table->bigInteger('supplier_id')->unsigned()->nullable();
             $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete('cascade');
-            $table->bigInteger('employed_id')->unsigned();
+
+            $table->bigInteger('employed_id')->unsigned()->nullable();
             $table->foreign('employed_id')->references('id')->on('employees')->onDelete('cascade');
+
+            $table->bigInteger('payment_method_id')->unsigned();
+            $table->foreign('payment_method_id')->references('id')->on('payment_methods')->onDelete('cascade');
+            
             $table->string('description');
             $table->string('amount');
             $table->timestamps();

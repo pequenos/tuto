@@ -17,8 +17,10 @@ use App\Http\Controllers\HomeController;
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware(['auth', 'isAdmin'])->group(function () {
+  Route::get('/admin', function () {
+    return view('admin.dashboard');
+  })->name('dashboard');
+});

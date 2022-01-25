@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Database\Seeders\{
     CategorySeeder,
     MethodPaymentSeeder,
+    AdminSeeder,
     RolesSeeder
 };
 
@@ -22,6 +23,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             MethodPaymentSeeder::class,
             RolesSeeder::class,
+            AdminSeeder::class,
         ];
 
         //call seeders
